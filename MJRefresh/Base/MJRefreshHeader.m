@@ -14,35 +14,17 @@
 @end
 
 @implementation MJRefreshHeader
-#pragma mark - 构造方法
-+ (instancetype)headerWithRefreshingBlock:(MJRefreshComponentRefreshingBlock)refreshingBlock
-{
-    MJRefreshHeader *cmp = [[self alloc] init];
-    cmp.refreshingBlock = refreshingBlock;
-    return cmp;
-}
-+ (instancetype)headerWithRefreshingTarget:(id)target refreshingAction:(SEL)action
-{
-    MJRefreshHeader *cmp = [[self alloc] init];
-    [cmp setRefreshingTarget:target refreshingAction:action];
-    return cmp;
-}
+
+
 
 #pragma mark - 覆盖父类的方法
 - (void)prepare
-{
-    [super prepare];
-    
-    // 设置key
+{    // 设置key
     self.lastUpdatedTimeKey = MJRefreshHeaderLastUpdatedTimeKey;
     
     // 设置高度
     self.mj_h = MJRefreshHeaderHeight;
-}
-
-- (void)placeSubviews
-{
-    [super placeSubviews];
+laceSubviews];
     
     // 设置y值(当自己的高度发生改变了，肯定要重新调整Y值，所以放到placeSubviews方法中设置y值)
     self.mj_y = - self.mj_h - self.ignoredScrollViewContentInsetTop;
